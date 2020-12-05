@@ -1,0 +1,27 @@
+.navbar{
+    background-color: rgb(65, 63, 63);
+    height: 90px;
+}
+
+.navbar a{
+    color: white;
+}
+
+.container{
+    padding: 3% 0;
+    min-height: calc(100vh - 90px - 90px);
+}
+
+
+footer{
+   display: flex;
+    height: 90px;
+    width: 100%;
+    background: rgb(43, 42, 42);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+

@@ -1,0 +1,34 @@
+
+    <h1>Lista de repuestos</h1>
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>imagen</th>
+                <th>nombre</th>
+                <th>Tipo</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Cantidad</th>
+                <th>Compra</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ="let repuesto of repuestos" [ngClass] = "{oferta: repuesto.oferta}">
+                <td ><img  class="img-thumbnail" [src]="repuesto.imagen" [alt]="repuesto.nombre"></td>
+                <td>{{repuesto.nombre | uppercase}}</td>
+                <td>{{repuesto.tipo}}</td>
+                <td>{{repuesto.precio | currency}}</td>
+                <td><span *ngIf="repuesto.stock == 0" class="badge badge-warning">SIN STOCK</span></td>
+                <td width="150">
+                   <app-input-numero [(cantidad)] = "repuesto.cantidad"  [max] = "repuesto.stock" *ngIf="repuesto.stock > 0" (maxRechazado)="maxRechazado($event)"></app-input-numero>
+                </td>
+                <td>
+                    
+                    <button class="btn btn-secondary btn-sm" (click)="agregarCarrito(repuesto)">comprar</button>
+                </td>
+            </tr>
+           
+        </tbody>
+    </table>
+    
+
